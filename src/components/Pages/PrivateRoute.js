@@ -6,3 +6,9 @@ export const PrivateRoute = ({ children }) => {
 
   return userloggedIn ? <Navigate to="/contacts" /> : children;
 };
+
+export const PrivateRouteHome = ({ children }) => {
+  const userloggedIn = useSelector(state => state.auth.isLoggedIn);
+
+  return !userloggedIn ? <Navigate to="/login" /> : children;
+};
